@@ -1,0 +1,25 @@
+entity Plataforma {
+	nome String
+}
+
+entity Genero {
+	nome String
+}
+
+entity Game {
+	nome String,
+    ano Integer,
+    descricao String,
+    imagem Blob,
+    link String
+}
+
+
+
+relationship ManyToMany {
+	Genero{game} to Game{generos(nome)}
+}
+
+relationship ManyToMany {
+	Plataforma{game} to Game{plataformas(nome)}
+}

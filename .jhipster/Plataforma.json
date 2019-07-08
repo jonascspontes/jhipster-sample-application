@@ -1,0 +1,27 @@
+{
+    "name": "Plataforma",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "game",
+            "otherEntityRelationshipName": "plataformas",
+            "relationshipName": "game",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190708192914",
+    "entityTableName": "plataforma",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

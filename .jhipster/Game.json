@@ -1,0 +1,49 @@
+{
+    "name": "Game",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ano",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imagem",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "link",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "genero",
+            "otherEntityRelationshipName": "game",
+            "relationshipName": "generos"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "plataforma",
+            "otherEntityRelationshipName": "game",
+            "relationshipName": "plataformas"
+        }
+    ],
+    "changelogDate": "20190708192916",
+    "entityTableName": "game",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

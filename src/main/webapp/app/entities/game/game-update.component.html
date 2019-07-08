@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-game-heading">Create or edit a Game</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ano">Ano</label>
+                    <input type="number" class="form-control" name="ano" id="field_ano"
+                           formControlName="ano"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                           formControlName="descricao"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_imagem">Imagem</label>
+                    <div>
+                        <div *ngIf="editForm.get('imagem').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('imagemContentType').value, editForm.get('imagem').value)">open</a><br>
+                            <span class="pull-left">{{editForm.get('imagemContentType').value}}, {{byteSize(editForm.get('imagem').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({imagem: null});editForm.patchValue({imagemContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imagem" (change)="setFileData($event, 'imagem', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imagem" id="field_imagem"
+                           formControlName="imagem"/>
+                    <input type="hidden" class="form-control" name="imagemContentType" id="field_imagemContentType"
+                           formControlName="imagemContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_link">Link</label>
+                    <input type="text" class="form-control" name="link" id="field_link"
+                           formControlName="link"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

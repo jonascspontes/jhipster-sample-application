@@ -1,0 +1,27 @@
+{
+    "name": "Genero",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "game",
+            "otherEntityRelationshipName": "generos",
+            "relationshipName": "game",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190708192915",
+    "entityTableName": "genero",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
